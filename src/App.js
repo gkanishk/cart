@@ -1,21 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
 import Products from './components/Products';
+import Cart from './components/Cart';
+import { useState } from 'react';
 
 function App() {
+  const [currentPage,setPage]=useState("home")
   return (
     <div className="App">
       <nav className="navbar-container">
         <ul>
-          <li>
+          <li onClick={()=>setPage("home")}>
             Home
           </li>
-          <li>
+          <li onClick={()=>setPage("cart")}>
             Cart
           </li>
         </ul>
       </nav>
-      <Products/>
+      {
+        currentPage==="home"?<Products/>:<Cart/>
+      }
     </div>
   );
 }
