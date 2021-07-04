@@ -1,4 +1,4 @@
-export const products = [
+[
     {
         "id":1234,
         "title": "Denim Shirt",
@@ -71,4 +71,4 @@ export const products = [
             "price": 2459
         }
     }
-];
+]

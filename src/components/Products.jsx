@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import {products} from "../assets/products";
+import products from "../assets/products.json";
 
 export default function Products(){
     const [showProducts,setProducts]=useState(products);
@@ -42,9 +42,9 @@ export default function Products(){
         <div className="products-container">
             {
                 showProducts.map(({id,title,img,attributes},index,arr)=>(
-                    <div className="product-card">
-                    <img src={img} alt="image"/>
-                    <span>{title}</span>
+                    <div className="product-card" key={id}>
+                    <img src={img} alt={title}/>
+                    <strong>{title}</strong><br/>
                     <span>Price: {attributes.price}</span><br/>
                     
                         {
