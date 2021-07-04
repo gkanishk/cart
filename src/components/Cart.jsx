@@ -96,8 +96,8 @@ export default function Cart(){
                             <span>{attributes.disc}%</span><br/>
                             <span>Count: {count}</span>
                             
-                            <button onClick={()=>changeItemsQuantity("inc",index)}>+</button>
-                            <button onClick={()=>changeItemsQuantity("dec",index)} disabled={count===1}>-</button>
+                            <button className="circular-btn" onClick={()=>changeItemsQuantity("inc",index)}>+</button>
+                            <button className="circular-btn" onClick={()=>changeItemsQuantity("dec",index)} disabled={count===1}>-</button>
                             <div>
                             <button onClick={()=>removeFromItemCart(arr[index])}>Remove from cart</button>
                             <button onClick={()=>addToSaveLater(arr[index])}>Save for later</button>

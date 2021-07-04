@@ -42,7 +42,7 @@ export default function Products(){
 
     return (
         <>
-        Produts
+        <h1>Products</h1>
         <div className="products-container">
             {
                 showProducts.map(({id,title,img,attributes},index,arr)=>(
