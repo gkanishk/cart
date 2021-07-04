@@ -5,6 +5,7 @@ export default function Cart(){
     const [saveLaterItems,setSaveLater]=useState([]);
     const [totalPrice,setToalPrice]=useState(0);
     const [totalCount,setTotalCount]=useState(0);
+    const [totalDiscountedPrice,setDiscountPrice]=useState(0);
 
     useEffect(()=>{
         const cart=JSON.parse(localStorage.getItem("cart"));
@@ -35,12 +36,19 @@ export default function Cart(){
         setCartItems([...tempCart])
     }
 
+    const getDiscounterPrice=({price,disc})=>{
+        return Math.round(price-((disc/100)*price));
+    }
+
     const getFinalPrice=()=>{
         let sum=0;
+        let initialSum=0;
         cartItems.forEach(({count,attributes})=>{
-            sum=sum+attributes.price*count;
+            sum=sum+getDiscounterPrice(attributes)*count;
+            initialSum=initialSum+attributes.price*count;
         })
-        setToalPrice(sum);
+        setToalPrice(initialSum);
+        setDiscountPrice(sum);
     }
 
     const addSaveLaterToCart=(item)=>{
@@ -83,7 +91,9 @@ export default function Cart(){
                             <div className="product-card" key={id}>
                             <img src={img} alt={title}/>
                             <strong>{title}</strong> <br/>
-                            <span>Price: Rs.{attributes.price}</span><br/>
+                            <span>Price: {getDiscounterPrice(attributes)}</span>
+                            <span style={{textDecoration:"line-through",margin:"0 0.2rem"}}>{attributes.price}</span>
+                            <span>{attributes.disc}%</span><br/>
                             <span>Count: {count}</span>
                             
                             <button onClick={()=>changeItemsQuantity("inc",index)}>+</button>
@@ -100,7 +110,9 @@ export default function Cart(){
                     <div>
                         <h1>Summary</h1>
                         <div>Items in cart:{totalCount}</div>
-                        <span>Total Price: {totalPrice}</span>
+                        <div>Initial Price: Rs. {totalPrice}</div>
+                        <div>Savings: Rs. {totalPrice-totalDiscountedPrice}</div>
+                        <span>Total Price: Rs. {totalDiscountedPrice}</span>
                     </div>
                 </div>
                 <div>

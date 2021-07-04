@@ -36,6 +36,10 @@ export default function Products(){
         return isPresent
     }
 
+    const getDiscounterPrice=({price,disc})=>{
+        return Math.round(price-((disc/100)*price));
+    }
+
     return (
         <>
         Produts
@@ -45,7 +49,11 @@ export default function Products(){
                     <div className="product-card" key={id}>
                     <img src={img} alt={title}/>
                     <strong>{title}</strong><br/>
-                    <span>Price: {attributes.price}</span><br/>
+                    <p>
+                        <span>Price: {getDiscounterPrice(attributes)}</span>
+                        <span style={{textDecoration:"line-through",margin:"0 0.2rem"}}>{attributes.price}</span>
+                        <span>{attributes.disc}%</span>
+                    </p><br/>
                     
                         {
                         itemPresent(arr[index])?

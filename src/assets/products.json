@@ -8,7 +8,8 @@
             "sizesAvailable": ["S","M","XL"],
             "brand": "Armani",
             "for": "men",
-            "price": 2999
+            "price": 2999,
+            "disc": 30
         }
     },
     {
@@ -20,7 +21,8 @@
             "sizesAvailable": ["S","M","XL"],
             "brand": "L&P",
             "for": "men",
-            "price": 199
+            "price": 199,
+            "disc": 30
         }
     },
     {
@@ -32,7 +34,8 @@
             "sizesAvailable": ["S","M","XL"],
             "brand": "Levis",
             "for": "men",
-            "price": 299
+            "price": 299,
+            "disc": 30
         }
     },
     {
@@ -44,7 +47,8 @@
             "sizesAvailable": ["X","XL"],
             "brand": "Levis",
             "for": "women",
-            "price": 2999
+            "price": 2999,
+            "disc": 30
         }
     },
     {
@@ -56,7 +60,8 @@
             "sizesAvailable": ["S","XL"],
             "brand": "Wills",
             "for": "women",
-            "price": 3999
+            "price": 3999,
+            "disc": 30
         }
     },
     {
@@ -68,7 +73,8 @@
             "sizesAvailable": ["S","M"],
             "brand": "H&M",
             "for": "women",
-            "price": 2459
+            "price": 2459,
+            "disc": 30
         }
     }
 ]
